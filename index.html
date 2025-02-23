@@ -1,0 +1,440 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Oh Sahbji offers a wide variety of delicious momos with 50 unique sauces. Order now for the best momo experience!">
+    <meta name="keywords" content="momos, steamed momos, fried momos, unique sauces, online momo order, Oh Sahbji">
+    <title>Oh Sahbji - Delicious Momos</title>
+    <style>
+        /* CSS Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        nav {
+            background-color: #ff5722;
+            padding: 10px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: center;
+        }
+        nav ul li {
+            display: inline;
+            margin: 0 20px;
+        }
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+            transition: color 0.3s ease;
+        }
+        nav ul li a:hover {
+            color: #ddd;
+        }
+        section {
+            padding: 40px 20px;
+            text-align: center;
+        }
+        #home {
+            background-color: #fff;
+            color: #333;
+        }
+        #home img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        #home h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+            color: #ff5722;
+        }
+        #home p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        #home button {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 10px 20px;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        #home button:hover {
+            background-color: #3e8e41;
+        }
+        .momo-grid, .sauce-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+        .momo-item, .sauce-item {
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        .momo-item:hover, .sauce-item:hover {
+            transform: translateY(-5px);
+        }
+        .momo-item img, .sauce-item img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+        .momo-item h3, .sauce-item h3 {
+            font-size: 20px;
+            margin-bottom: 5px;
+            color: #ff5722;
+        }
+        .momo-item p, .sauce-item p {
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        .momo-item span {
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+        }
+        .momo-item button, .sauce-item button {
+            background-color: #ff5722;
+            color: #fff;
+            padding: 8px 15px;
+            font-size: 14px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            margin-top: 10px;
+        }
+        .momo-item button:hover, .sauce-item button:hover {
+            background-color: #e64a19;
+        }
+        #about {
+            background-color: #eee;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        #about h2 {
+            font-size: 28px;
+            margin-bottom: 10px;
+            color: #ff5722;
+        }
+        #about p {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        #contact {
+            background-color: #fff;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        #contact h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #ff5722;
+        }
+        #contact form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        #contact label {
+            display: block;
+            text-align: left;
+            margin-bottom: 5px;
+            font-size: 16px;
+        }
+        #contact input[type="text"],
+        #contact input[type="email"],
+        #contact textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        #contact textarea {
+            height: 150px;
+        }
+        #contact button[type="submit"] {
+            background-color: #ff5722;
+            color: #fff;
+            padding: 10px 20px;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        #contact button[type="submit"]:hover {
+            background-color: #e64a19;
+        }
+        #cart {
+            background-color: #eee;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        #cart h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #ff5722;
+        }
+        #cart-items {
+            margin-bottom: 20px;
+        }
+        #cart button {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 10px 20px;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        #cart button:hover {
+            background-color: #3e8e41;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+        footer p {
+            margin-bottom: 10px;
+        }
+        .social-media {
+            margin-bottom: 10px;
+        }
+        .social-media a {
+            margin: 0 10px;
+            display: inline-block;
+        }
+        .social-media img {
+            width: 30px;
+            height: 30px;
+            vertical-align: middle;
+        }
+        footer form {
+            margin-top: 10px;
+        }
+        footer label {
+            color: #fff;
+            margin-right: 10px;
+        }
+        footer input[type="email"] {
+            padding: 8px;
+            border-radius: 5px;
+            border: none;
+            margin-right: 10px;
+        }
+        footer button[type="submit"] {
+            background-color: #ff5722;
+            color: #fff;
+            padding: 8px 15px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        footer button[type="submit"]:hover {
+            background-color: #e64a19;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#menu">Menu</a></li>
+            <li><a href="#sauces">Sauces</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#cart">Cart (0)</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home">
+        <img src="https://images.unsplash.com/photo-1626783431818-8a8e657540c6?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Delicious Momos">
+        <h1>Welcome to Oh Sahbji</h1>
+        <p>Experience the best momos with our 50 unique sauces.</p>
+        <button onclick="scrollToMenu()">Order Now</button>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu">
+        <h2>Our Momos</h2>
+        <div class="momo-grid">
+            <!-- Example Momo Item -->
+            <div class="momo-item">
+                <img src="https://images.unsplash.com/photo-1534422298391-e4f8c172dd9c?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Steamed Momo">
+                <h3>Steamed Momo</h3>
+                <p>Classic steamed momos filled with fresh vegetables.</p>
+                <span>$5.99</span>
+                <button onclick="addToCart('Steamed Momo')">Add to Cart</button>
+            </div>
+            <div class="momo-item">
+                <img src="https://images.unsplash.com/photo-1631452180588-5e3545455c59?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Fried Momo">
+                <h3>Fried Momo</h3>
+                <p>Crispy fried momos with a delicious filling.</p>
+                <span>$6.99</span>
+                <button onclick="addToCart('Fried Momo')">Add to Cart</button>
+            </div>
+            <div class="momo-item">
+                <img src="https://plus.unsplash.com/premium_photo-1663840131517-b5a8b795d0b6?q=80&w=1898&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Tandoori Momo">
+                <h3>Tandoori Momo</h3>
+                <p>Smoky tandoori momos with a spicy kick.</p>
+                <span>$7.99</span>
+                <button onclick="addToCart('Tandoori Momo')">Add to Cart</button>
+            </div>
+            <div class="momo-item">
+                <img src="https://images.unsplash.com/photo-1615887023512-5155447f79e7?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Cheese Momo">
+                <h3>Cheese Momo</h3>
+                <p>Cheesy momos with a gooey center.</p>
+                <span>$8.49</span>
+                <button onclick="addToCart('Cheese Momo')">Add to Cart</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sauces Section -->
+    <section id="sauces">
+        <h2>Our Sauces</h2>
+        <div class="sauce-grid">
+            <!-- Example Sauce Item -->
+            <div class="sauce-item">
+                <img src="https://images.unsplash.com/photo-1608897013039-887f21d8c804?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Spicy Chili Sauce">
+                <h3>Spicy Chili Sauce</h3>
+                <p>Add a fiery kick to your momos.</p>
+                <button onclick="addSauce('Spicy Chili Sauce')">Select</button>
+            </div>
+            <div class="sauce-item">
+                <img src="https://images.unsplash.com/photo-1564758515284-ccb9a4d2f56d?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Mint Mayo Sauce">
+                <h3>Mint Mayo Sauce</h3>
+                <p>Cool and refreshing minty mayo sauce.</p>
+                <button onclick="addSauce('Mint Mayo Sauce')">Select</button>
+            </div>
+            <div class="sauce-item">
+                <img src="https://images.unsplash.com/photo-1498579397058-2bc2f8f5e767?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Garlic Sauce">
+                <h3>Garlic Sauce</h3>
+                <p>Rich and savory garlic-infused sauce.</p>
+                <button onclick="addSauce('Garlic Sauce')">Select</button>
+            </div>
+            <div class="sauce-item">
+                <img src="https://images.unsplash.com/photo-1625220194771-744271657862?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Schezwan Sauce">
+                <h3>Schezwan Sauce</h3>
+                <p>Spicy and tangy Schezwan sauce.</p>
+                <button onclick="addSauce('Schezwan Sauce')">Select</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about">
+        <h2>About Oh Sahbji</h2>
+        <p>We are passionate about bringing you the finest momos with a variety of unique sauces to enhance your dining experience. Our momos are made with the freshest ingredients and crafted with love. We strive to provide the best quality and taste, ensuring every bite is a delightful experience.</p>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <form>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" required></textarea>
+
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <!-- Cart Section -->
+    <section id="cart">
+        <h2>Your Cart</h2>
+        <div id="cart-items">
+            <!-- Cart items will be dynamically added here -->
+        </div>
+        <button onclick="checkout()">Proceed to Checkout</button>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Oh Sahbji. All rights reserved.</p>
+        <div class="social-media">
+            <a href="#"><img src="https://img.freepik.com/premium-vector/blue-social-media-logo_197792-1759.jpg" alt="Facebook"></a>
+            <a href="#"><img src="https://img.freepik.com/free-vector/instagram-icon_1057-2227.jpg" alt="Instagram"></a>
+            <a href="#"><img src="https://img.freepik.com/premium-vector/twitter-logo-square-shape-social-media-platform-icon_578229-263.jpg" alt="Twitter"></a>
+        </div>
+        <form>
+            <label for="newsletter">Subscribe to our newsletter:</label>
+            <input type="email" id="newsletter" name="newsletter" placeholder="Your email">
+            <button type="submit">Subscribe</button>
+        </form>
+    </footer>
+
+    <script>
+        // JavaScript
+        let cart = [];
+
+        function addToCart(item) {
+            cart.push(item);
+            updateCart();
+            alert(item + " has been added to your cart.");
+        }
+
+        function addSauce(sauce) {
+            // Logic to add sauce selection
+            alert(sauce + " selected.");
+        }
+
+        function updateCart() {
+            document.querySelector('nav ul li a[href="#cart"]').textContent = `Cart (${cart.length})`;
+            let cartItems = document.getElementById('cart-items');
+            cartItems.innerHTML = '';
+            cart.forEach((item, index) => {
+                let div = document.createElement('div');
+                div.textContent = `${index + 1}. ${item}`;
+                cartItems.appendChild(div);
+            });
+        }
+
+        function checkout() {
+            if(cart.length === 0){
+                alert("Your cart is empty.");
+            } else {
+                alert("Proceeding to checkout.");
+                // Redirect to checkout page or process payment
+            }
+        }
+
+        function scrollToMenu() {
+            document.getElementById('menu').scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
